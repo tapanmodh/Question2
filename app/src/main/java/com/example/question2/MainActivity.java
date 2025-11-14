@@ -32,10 +32,9 @@ public class MainActivity extends AppCompatActivity implements AddPaymentDialog.
     private static final String KEY_PAYMENTS = "payments_json";
 
     private final List<Payment> paymentsList = new ArrayList<>();
+    private final Gson gson = new Gson();
     private ChipGroup chipGroup;
     private TextView tvTotal;
-
-    private final Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

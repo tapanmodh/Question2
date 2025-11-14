@@ -67,7 +67,8 @@ public class AddPaymentDialog extends DialogFragment {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         return new AlertDialog.Builder(requireContext())
@@ -92,6 +93,7 @@ public class AddPaymentDialog extends DialogFragment {
 
     public interface Listener {
         void onPaymentAdded(Payment payment);
+
         List<PaymentType> getExistingTypes();
     }
 }

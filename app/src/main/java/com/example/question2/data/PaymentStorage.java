@@ -27,7 +27,7 @@ public class PaymentStorage {
                 Payment[] arr = payments.toArray(new Payment[0]);
                 String json = gson.toJson(arr);
 
-                try(FileOutputStream fos = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
+                try (FileOutputStream fos = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
                     fos.write(json.getBytes());
                 }
 
@@ -47,8 +47,8 @@ public class PaymentStorage {
                 }
 
                 StringBuilder builder = new StringBuilder();
-                try(FileInputStream fis = context.openFileInput(FILE_NAME);
-                BufferedReader br = new BufferedReader(new InputStreamReader(fis))) {
+                try (FileInputStream fis = context.openFileInput(FILE_NAME);
+                     BufferedReader br = new BufferedReader(new InputStreamReader(fis))) {
 
                     String line;
                     while ((line = br.readLine()) != null) builder.append(line);
