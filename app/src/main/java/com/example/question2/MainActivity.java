@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements AddPaymentDialog.
     private final Gson gson = new Gson();
     private ChipGroup chipGroup;
     private TextView tvTotal;
+    private TextView tvAddPayment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +62,9 @@ public class MainActivity extends AppCompatActivity implements AddPaymentDialog.
             }));
         }
 
-        TextView tvAdd = findViewById(R.id.tvAddPayment);
-        tvAdd.setPaintFlags(tvAdd.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvAdd.setOnClickListener(view -> new AddPaymentDialog().show(getSupportFragmentManager(), "add"));
+        tvAddPayment = findViewById(R.id.tvAddPayment);
+        tvAddPayment.setPaintFlags(tvAddPayment.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvAddPayment.setOnClickListener(view -> new AddPaymentDialog().show(getSupportFragmentManager(), "add"));
         findViewById(R.id.btnSave).setOnClickListener(view -> PaymentStorage.save(this, paymentsList));
     }
 
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements AddPaymentDialog.
         }
 
         updateTotal();
+        tvAddPayment.setVisibility(paymentsList.size() == PaymentType.values().length ? View.GONE : View.VISIBLE);
     }
 
     private void updateTotal() {

@@ -43,7 +43,8 @@
         android:paddingHorizontal="20dp"
         android:text="@string/add_payment"
         android:textColor="@color/bright_blue"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:visibility="gone"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSave"
